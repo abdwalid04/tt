@@ -1,6 +1,9 @@
 name: Example Workflow
 
-on: [push]
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
   example-job:
@@ -10,8 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set github.ref_name
-        run: echo "GITHUB_REF_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
+      - name: Extract tag name
+        id: extract_tag
+        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
-      - name: Print github.ref_name
-        run: echo "The ref name is $GITHUB_REF_NAME"
+      - name: Print tag name
+        run: echo "The tag name is $TAG_NAME"
