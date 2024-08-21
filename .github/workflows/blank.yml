@@ -13,11 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create .env file
-        run: |
-          echo -e ${{ secrets.ENV_FILE }} | base64 --decode > .env
-          
-
       - name: Print .env file contents
-        run: cat .env
-        shell: bash
+        run: cat Readme.md
+        shell: bash -l {0}
