@@ -15,9 +15,9 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo ${{ secrets.ENV_FILE }} >> .env
-        shell: bash -l {0}
+          echo ${{ vars.ENV_FILE }} >> .env
+        shell: bash
 
       - name: Print .env file contents
         run: cat .env
-        shell: bash -l {0}
+        shell: bash
