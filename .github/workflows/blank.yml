@@ -16,9 +16,9 @@ jobs:
       - name: Create .env file
         uses: ozaytsev86/create-env-file@v1
         with:
-          PGSQL_CONNINFO: ${{ secrets.PGSQL_CONNINFO }}
-          CHAINLIT_AUTH_SECRET: ${{ secrets.CHAINLIT_AUTH_SECRET }}
-          NEO4J_URI: ${{ secrets.NEO4J_URI }}
+          [PGSQL_CONNINFO]: ${{ secrets.PGSQL_CONNINFO }}
+          [CHAINLIT_AUTH_SECRET]: ${{ secrets.CHAINLIT_AUTH_SECRET }}
+          [NEO4J_URI]: ${{ secrets.NEO4J_URI }}
           
 
       - name: Print .env file contents
