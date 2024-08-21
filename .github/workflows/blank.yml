@@ -14,9 +14,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Create .env file
-        run: |
-          touch .env
-          echo ${{ secrets.ENV_FILE }} | base64 --decode > .env
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          PGSQL_CONNINFO: ${{ secrets.PGSQL_CONNINFO }}
+          CHAINLIT_AUTH_SECRET: ${{ secrets.CHAINLIT_AUTH_SECRET }}
+          NEO4J_URI: ${{ secrets.NEO4J_URI }}
+          
 
       - name: Print .env file contents
         run: cat .env
