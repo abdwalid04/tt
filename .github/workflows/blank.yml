@@ -20,3 +20,4 @@ jobs:
 
       - name: Print .env file contents
         run: cat .env
+        shell: bash
