@@ -1,0 +1,22 @@
+name: Test github.ref_name
+
+on:
+  push:
+    tags:
+      - '**'  # Trigger the workflow on any tag push
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  test-ref-name:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Output the value of github.ref_name
+      - name: Print github.ref_name
+        run: echo "GitHub ref name: ${{ github.ref_name }}"
