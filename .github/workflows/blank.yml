@@ -15,7 +15,7 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "${{ vars.ENV_FILE }}" | base64 -(decode > .env
+          echo "${{ vars.ENV_FILE }}" | base64 --decode > .env
         shell: bash
 
       - name: Print .env file contents
